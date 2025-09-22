@@ -1,0 +1,68 @@
+<div class="container-fluid card edit-container p-4">
+  <h3 class="text-center mb-3">Edit Your Profile</h3>
+  <hr />
+
+  <!-- Toast de erro/sucesso -->
+  <div class="toast-overlay" *ngIf="errorMessage || successMessage">
+    <div class="toast-message" [ngClass]="{'error': errorMessage, 'success': successMessage}">
+      <span>{{ errorMessage || successMessage }}</span>
+      <button type="button" class="btn-close" aria-label="Close" (click)="errorMessage=''; successMessage=''"></button>
+    </div>
+  </div>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <!-- First Name -->
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input id="firstName" formControlName="firstName" class="form-control" [ngClass]="{'is-invalid': userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched}" />
+      <div class="invalid-feedback" *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched">
+        First Name can't be empty
+      </div>
+    </div>
+
+    <!-- Last Name -->
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input id="lastName" formControlName="lastName" class="form-control" [ngClass]="{'is-invalid': userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched}" />
+      <div class="invalid-feedback" *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched">
+        Last Name can't be empty
+      </div>
+    </div>
+
+    <!-- Phone -->
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input id="phone" formControlName="phone" class="form-control" [ngClass]="{'is-invalid': userForm.get('phone')?.invalid && userForm.get('phone')?.touched}" />
+      <div class="invalid-feedback" *ngIf="userForm.get('phone')?.invalid && userForm.get('phone')?.touched">
+        Phone can't be empty
+      </div>
+    </div>
+
+    <!-- Gender -->
+    <div class="mb-3">
+      <label for="gender" class="form-label">Gender</label>
+      <select id="gender" formControlName="gender" class="form-control">
+        <option value="" disabled>Select Gender</option>
+        <option value="MALE">Male</option>
+        <option value="FEMALE">Female</option>
+        <option value="OTHER">Other</option>
+      </select>
+    </div>
+
+    <!-- Date of Birth -->
+    <div class="mb-3">
+      <label for="dateOfBirth" class="form-label">Date of Birth</label>
+      <input id="dateOfBirth" formControlName="dateOfBirth" type="date" class="form-control" [ngClass]="{'is-invalid': userForm.get('dateOfBirth')?.invalid && userForm.get('dateOfBirth')?.touched}" />
+      <div class="invalid-feedback" *ngIf="userForm.get('dateOfBirth')?.invalid && userForm.get('dateOfBirth')?.touched">
+        Date of Birth can't be empty
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex justify-content-between mt-4 gap-2">
+      <button type="submit" class="btn btn-primary flex-fill">Save Changes</button>
+      <button type="button" class="btn btn-secondary flex-fill" (click)="goToDashboard()">Cancel</button>
+    </div>
+  </form>
+</div>

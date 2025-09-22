@@ -1,0 +1,42 @@
+.footer {
+  background-color: #f9f9f9; /* Fundo claro */
+  padding: 2rem 0;
+  color: #0d1b2a; /* Azul escuro para textos */
+  font-size: 0.9rem;
+}
+
+.footer h5 {
+  color: #0d1b2a; /* Azul escuro para títulos */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-decoration: none; /* Remove sublinhado */
+}
+
+.footer p {
+  color: #1b263b; /* Azul médio para textos */
+  line-height: 1.6;
+}
+
+.footer a {
+  color: #1b263b; /* Azul médio para links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #e6a800; /* Amarelo escuro/dourado no hover */
+}
+
+.footer-text {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: #6c757d; /* Cinza intermediário */
+  border-top: 1px solid rgba(13, 27, 42, 0.1);
+  padding-top: 1rem;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}

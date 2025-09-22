@@ -1,0 +1,124 @@
+.navbar-custom {
+  background-color: #f9f9f9;
+  padding: 1rem;
+
+  .navbar-brand img {
+    height: 40px;
+  }
+
+  .nav-link {
+    color: #0d1b2a;
+    font-weight: 400;
+    margin-right: 1.5rem;
+    transition: color 0.3s;
+  }
+
+  .nav-link:hover {
+    color: #ffd54f;
+  }
+
+  .active-link {
+    color: #e6a800;
+    font-weight: 500;
+  }
+
+  .form-control {
+    border-radius: 5px;
+  }
+
+  .btn-link {
+    color: #0d1b2a;
+  }
+}
+
+.user-photo .image-wrapper {
+  position: relative;
+  width: 60px;
+  height: 50px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30%;
+    object-fit: cover;
+  }
+
+  .edit-icon {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #0d1b2a;
+    color: #e6a800;
+    padding: 5px;
+    border-radius: 50%;
+  }
+
+  &:hover .edit-icon {
+    display: block;
+  }
+}
+
+.name-container {
+  position: relative;
+  cursor: pointer;
+
+  .edit-button {
+    display: none;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffc107; /* amarelo */
+    border: none;
+    color: #0d1b2a;
+    font-weight: 600;
+  }
+
+  &:hover .edit-button {
+    display: inline-block;
+  }
+}
+
+/* Modal custom */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+.custom-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem;
+  width: 25rem;
+  border-radius: 5px;
+  z-index: 1000;
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h5 { margin: 0; }
+    .close-btn {
+      border: none;
+      background: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+}

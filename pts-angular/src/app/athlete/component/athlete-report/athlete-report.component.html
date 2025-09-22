@@ -1,0 +1,36 @@
+<div class="card assessment-card">
+  <div class="card-header d-flex justify-content-between align-items-center text-white">
+    <span>Athlete Report</span>
+    <button class="btn btn-sm btn-warning" (click)="generateReport()">
+      Generate Report
+    </button>
+  </div>
+
+  <div class="card-body">
+
+    <!-- Blood Pressure -->
+    <p>
+      <strong>Blood Pressure Status:</strong>
+      <span class="status-badge" [ngClass]="getBloodPressureClass(athleteReport?.bloodPressureStatus)">
+        {{ athleteReport?.bloodPressureStatus }}
+      </span>
+    </p>
+
+    <!-- BMI -->
+    <p>
+      <strong>Body Mass Index Status:</strong>
+      <span class="status-badge" [ngClass]="getBMIClass(athleteReport?.bmistatus)">
+        {{ athleteReport?.bmistatus }}
+      </span>
+    </p>
+
+    <!-- Waist/Hip -->
+    <p>
+      <strong>Waist / Hip Risk:</strong>
+      <span class="status-badge" [ngClass]="getWaistHipClass(athleteReport?.waistHipRisk)">
+        {{ athleteReport?.waistHipRisk }}
+      </span>
+    </p>
+
+  </div>
+</div>

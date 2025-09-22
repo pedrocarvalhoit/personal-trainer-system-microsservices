@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid mt-4 mb-4 athletes-container">
+  <div class="card-custom shadow-sm p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 header-section">
+      <h3 class="title mb-0">
+        {{ showDisabledAthletes ? 'Deactivated Clients' : 'Active Clients' }}
+      </h3>
+      <button class="btn btn-toggle" (click)="toggleAthleteList()">
+        {{ showDisabledAthletes ? 'Show Active Clients' : 'Show Deactivated Clients' }}
+      </button>
+    </div>
+
+    <div class="athletes-list">
+      <div class="athlete-card-horizontal" *ngFor="let athlete of athletes">
+        
+        <!-- Foto -->
+        <div class="image-wrapper">
+          <img [src]="athlete.photo ? athlete.photo : 'assets/images/logo2.png'" 
+               alt="User Photo" class="athlete-photo">
+          <span class="edit-icon" (click)="showDialog(athlete.id)">
+            <i class="fas fa-pen"></i>
+          </span>
+        </div>
+
+        <!-- Dados -->
+        <div class="athlete-info">
+          <h3 class="name" (click)="redirectAthletePage(athlete.id)">
+            {{ athlete.fullName }}
+          </h3>
+          <p class="email"><i class="fas fa-envelope"></i> {{ athlete.email }}</p>
+          <p class="details"><i class="fas fa-phone"></i> {{ athlete.phone }}</p>
+          <p class="details"><i class="fas fa-birthday-cake"></i> {{ athlete.dateOfBirth }} ({{ athlete.age }} years)</p>
+          <p class="details"><i class="fas fa-venus-mars"></i> {{ athlete.gender }}</p>
+          <p class="status" [class.enabled]="athlete.enabled" [class.disabled]="!athlete.enabled">
+            {{ athlete.enabled ? "Enabled" : "Disabled" }}
+          </p>
+        </div>
+
+        <!-- Ações -->
+        <div class="actions">
+          <button class="btn btn-edit" (click)="editAthlete(athlete.id)">
+            <i class="fas fa-user-edit"></i> Edit
+          </button>
+          <button class="btn btn-status" (click)="changeStatus(athlete.id)">
+            <i class="fas fa-sync"></i> Change status
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast-overlay" *ngIf="successMessage">
+  <div class="toast-message">
+    {{ successMessage }}
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-backdrop" *ngIf="visible" (click)="hideDialog()"></div>
+<div class="custom-modal" *ngIf="visible">
+  <div class="modal-header">
+    <h5>Edit Photo</h5>
+    <button class="close-btn" (click)="hideDialog()">&times;</button>
+  </div>
+  <div class="modal-body">
+    <input type="file" (change)="onFileSelected($event)">
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="hideDialog()">Cancel</button>
+    <button class="btn btn-primary" (click)="uploadPhoto()">Save</button>
+  </div>
+</div>
+
+<app-footer></app-footer>

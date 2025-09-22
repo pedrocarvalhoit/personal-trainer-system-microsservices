@@ -1,0 +1,95 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid card login-container athlete-form-card">
+  <h3 class="text-center">Create a Workout Session</h3>
+  <hr />
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+      <label for="client" class="form-label">Select Athlete:</label>
+      <select [(ngModel)]="selectedAthlete" name="client" id="client" class="form-control">
+        <option *ngFor="let athlete of athletes" [ngValue]="athlete">{{ athlete.fullName }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Workout ProgramName Title:</label>
+        <input
+          [(ngModel)]="title"
+          type="text"
+          class="form-control"
+          name="title"
+          id="title"
+          placeholder="Ex: Corrida 1"
+          required
+        />
+      </div>
+
+    <div class="mb-3">
+        <label for="startDate" class="form-label">Start Date:</label>
+        <input
+          [(ngModel)]="startDate"
+          type="date"
+          class="form-control"
+          name="startDate"
+          id="startDate"
+          required
+        />
+      </div>
+
+    <div class="mb-3">
+        <label for="endDate" class="form-label">End Date:</label>
+        <input
+          [(ngModel)]="endDate"
+          type="date"
+          class="form-control"
+          name="endDate"
+          id="endDate"
+          required
+        />
+      </div>
+
+    <div class="mb-3">
+        <label for="trainingSessionContent" class="form-label">Training Session Content</label>
+        <editor
+        [(ngModel)]="trainingSessionContent"
+        [init]="tinyMceConfig"
+        name="trainingSessionContent"
+        apiKey="869mx4epb38d4q90d17q59aq7jpfallz5ix80kxg38yfnq58"
+      ></editor>
+      </div>
+
+    <div class="mb-3">
+        <label for="note" class="form-label">Note:</label>
+        <input
+          [(ngModel)]="note"
+          type="text"
+          class="form-control"
+          id="note"
+          name="note"
+          placeholder="Things you need to remember"
+        />
+      </div>
+
+      <div class="mb-3 form-check">
+        <label for="enabled" class="form-check-label">Enabled:</label>
+        <input
+          [(ngModel)]="enabled"
+          type="checkbox"
+          class="form-check-input"
+          name="enabled"
+          id="enabled"
+        />
+      </div>
+
+    <div class="text-center mb-3">
+      <button type="submit" class="btn btn-primary custom-btn">
+      <i class="fa-solid fa-plus"></i> Create
+      </button>
+    </div>
+
+
+  </form>
+</div>
+
+<app-footer></app-footer>

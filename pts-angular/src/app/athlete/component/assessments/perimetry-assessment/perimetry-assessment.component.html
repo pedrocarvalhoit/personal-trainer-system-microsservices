@@ -1,0 +1,79 @@
+<div class="container mt-4">
+  <div class="row">
+    <!-- Coluna da esquerda -->
+    <div class="col-md-6 d-flex flex-column">
+      <!-- Card de detalhes -->
+      <div class="card assessment-card flex-grow-1">
+        <div class="card-header text-white text-center">Perimetry Assessment Selected</div>
+        <div class="card-body" *ngIf="selectedAssessment; else noSelection">
+          <p><strong>Date:</strong> {{ selectedAssessment.createdAt | date: 'dd/MM/yyyy' }}</p>
+          <p><strong>Shoulder:</strong> {{ selectedAssessment.shoulder}} cm</p>
+          <p><strong>Torax:</strong> {{ selectedAssessment.torax}} cm</p>
+          <p><strong>Waist:</strong> {{ selectedAssessment.waist}} cm</p>
+          <p><strong>Abdomen:</strong> {{ selectedAssessment.abdomen}} cm</p>
+          <p><strong>Hip:</strong> {{ selectedAssessment.hip}} cm</p>
+          <p><strong>Right Arm:</strong> {{ selectedAssessment.rightArm}} cm</p>
+          <p><strong>Left Arm:</strong> {{ selectedAssessment.leftArm}} cm</p>
+          <p><strong>Right Thigh:</strong> {{ selectedAssessment.rightThigh}} cm</p>
+          <p><strong>Left Thigh:</strong> {{ selectedAssessment.leftThigh}} cm</p>
+          <p><strong>Right Leg:</strong> {{ selectedAssessment.rightLeg}} cm</p>
+          <p><strong>Left Leg:</strong> {{ selectedAssessment.leftLeg}} cm</p>
+        </div>
+        <ng-template #noSelection>
+          <div class="text-muted p-3">Select some Perimetry assessment.</div>
+        </ng-template>
+      </div>
+
+      <!-- Gráfico Heart Rate -->
+      <div class="card assessment-card mt-3">
+        <div class="card-header text-white text-center">Hip Evolution</div>
+        <div class="card-body" style="height: 350px;">
+          <canvas baseChart
+                  [data]="lineChartData"
+                  [options]="lineChartOptions"
+                  [type]="'line'">
+          </canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coluna da direita -->
+    <div class="col-md-6 d-flex flex-column">
+      <!-- Card de histórico -->
+      <div class="card assessment-card flex-grow-1">
+        <div class="card-header text-white text-center">Perimetry History</div>
+        <div class="card-body p-0 history-list">
+          <ul class="list-group list-group-flush">
+            <li 
+              class="list-group-item list-item-click d-flex justify-content-between align-items-center"
+              *ngFor="let assessment of assessments"
+              (click)="selectAssessment(assessment)"
+              [class.active-item]="assessment.id === selectedAssessment?.id"
+            >
+              <span>{{ assessment.createdAt | date: 'dd/MM/yyyy' }}</span>
+              <button 
+                class="btn btn-sm btn-outline-danger delete-btn"
+                (click)="deleteAssessment(assessment.id); $event.stopPropagation()"
+              >
+                <i class="bi bi-trash">delete</i> <!-- ícone bootstrap -->
+              </button>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+      <!-- Gráfico Pressão Arterial -->
+      <div class="card assessment-card mt-3">
+        <div class="card-header text-white text-center">Waist and Abdomen</div>
+        <div class="card-body" style="height: 350px;">
+          <canvas baseChart
+                  [data]="waistAndAbdominalChartData"
+                  [options]="lineChartOptions"
+                  [type]="'line'">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

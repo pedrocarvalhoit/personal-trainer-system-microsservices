@@ -1,0 +1,104 @@
+<div class="page-shell">
+  <app-navbar></app-navbar>
+
+  <!-- Toast -->
+  <div class="toast-overlay" *ngIf="successMessage">
+    <div class="toast-message">{{ successMessage }}</div>
+  </div>
+
+  <main class="page-content">
+    <div class="dashboard-container">
+      <!-- Tabs -->
+      <ul class="nav-tabs">
+        <li>
+          <button (click)="activeTab = 1" [class.active]="activeTab === 1">Report & Recommendation</button>
+        </li>
+
+        <li ngbDropdown>
+          <button ngbDropdownToggle (click)="activeTab = 2" [class.active]="activeTab === 2">
+            Assessments
+          </button>
+          <ul ngbDropdownMenu *ngIf="activeTab === 2">
+            <li><button class="dropdown-item" (click)="activeTab = 2">Inicial Assessment</button></li>
+            <li><button class="dropdown-item" (click)="activeTab = 3">Perimetry Assessment</button></li>
+            <li><button class="dropdown-item" (click)="activeTab = 4">Bioimpedance Assessment</button></li>
+          </ul>
+        </li>
+
+        <li ngbDropdown>
+          <button ngbDropdownToggle (click)="activeTab = 5" [class.active]="activeTab === 5">
+            Workout Sessions
+          </button>
+          <ul ngbDropdownMenu *ngIf="activeTab === 5">
+            <li><button class="dropdown-item" (click)="activeTab = 5">Sessions Stats</button></li>
+            <li><button class="dropdown-item" (click)="activeTab = 6">Sessions List</button></li>
+          </ul>
+        </li>
+
+        <li>
+          <button (click)="activeTab = 7" [class.active]="activeTab === 7">Workout Programs</button>
+        </li>
+        <li>
+          <button (click)="activeTab = 8" [class.active]="activeTab === 8">Cooper Test</button>
+        </li>
+        <li>
+          <button (click)="activeTab = 9" [class.active]="activeTab === 9">Strength Test</button>
+        </li>
+      </ul>
+
+      <!-- Tab Content -->
+      <div>
+        <div *ngIf="activeTab === 1">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+              <app-bioimpedance-recommendation [athleteId]="athleteId"></app-bioimpedance-recommendation>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-4">
+              <app-athlete-report [athleteId]="athleteId"></app-athlete-report>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="activeTab === 2">
+          <app-inicial-assessment [athleteId]="athleteId"></app-inicial-assessment>
+        </div>
+
+        <div *ngIf="activeTab === 3">
+          <app-perimetry-assessment [athleteId]="athleteId"></app-perimetry-assessment>
+        </div>
+
+        <div *ngIf="activeTab === 4">
+          <app-bioimpedance-assessment [athleteId]="athleteId"></app-bioimpedance-assessment>
+        </div>
+
+        <div *ngIf="activeTab === 5">
+          <app-workout-session-stats [athleteId]="athleteId"></app-workout-session-stats>
+        </div>
+
+        <div *ngIf="activeTab === 6">
+          <app-workout-session-list [athleteId]="athleteId"></app-workout-session-list>
+
+        </div>
+
+        <div *ngIf="activeTab === 7">
+          <app-workout-program-list [athleteId]="athleteId"></app-workout-program-list>
+        </div>
+
+        <div *ngIf="activeTab === 8">
+          <app-cooper-test></app-cooper-test>
+          <app-cooper-test-result></app-cooper-test-result>
+          <app-cooper-test-historic></app-cooper-test-historic>
+        </div>
+
+        <div *ngIf="activeTab === 9">
+          <app-back-squat></app-back-squat>
+          <app-deadlift></app-deadlift>
+          <app-bench-press></app-bench-press>
+          <app-seated-low-row></app-seated-low-row>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+</div>

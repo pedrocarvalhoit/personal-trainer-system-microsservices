@@ -1,0 +1,98 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid card login-container athlete-form-card">
+  <h3 class="text-center">Create a Workout Session</h3>
+  <hr />
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+      <label for="client" class="form-label">Select Athlete:</label>
+      <select [(ngModel)]="selectedAthlete" name="client" id="client" class="form-control">
+        <option *ngFor="let athlete of athletes" [ngValue]="athlete">{{ athlete.fullName }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="workoutProgramName" class="form-label">Workout Program Name:</label>
+      <input
+        [(ngModel)]="workoutProgramName"
+        type="text"
+        class="form-control"
+        name="workoutProgramName"
+        id="workoutProgramName"
+        placeholder="Text Here"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="sessionDate" class="form-label">Session Date:</label>
+      <input
+        [(ngModel)]="sessionDate"
+        type="date"
+        class="form-control"
+        name="sessionDate"
+        id="sessionDate"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="sessionTime" class="form-label">Session Time:</label>
+      <input
+        [(ngModel)]="sessionTime"
+        type="time"
+        class="form-control"
+        name="sessionTime"
+        id="sessionTime"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="clientSubjectiveEffort" class="form-label">Client Subjective Effort:</label>
+      <input
+        [(ngModel)]="clientSubjectiveEffort"
+        type="number"
+        class="form-control"
+        name="clientSubjectiveEffort"
+        id="clientSubjectiveEffort"
+        placeholder="Ex: 2"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="ptQualityEffortIndicative" class="form-label">PtQuality Effort Indicative:</label>
+      <input
+        [(ngModel)]="ptQualityEffortIndicative"
+        type="number"
+        class="form-control"
+        name="ptQualityEffortIndicative"
+        id="ptQualityEffortIndicative"
+        placeholder="Ex: 2"
+        required
+      />
+    </div>
+
+    <div class="form-check mb-3">
+      <input
+        [(ngModel)]="executed"
+        type="checkbox"
+        class="form-check-input"
+        name="executed"
+        id="executed"
+      />
+      <label class="form-check-label" for="executed">Executed</label>
+    </div>
+
+    
+
+    <div class="text-center mb-3">
+      <button type="submit" class="btn btn-primary custom-btn">
+      <i class="fa-solid fa-plus"></i> Create
+      </button>
+    </div>
+
+
+  </form>
+</div>
+
+<app-footer></app-footer>

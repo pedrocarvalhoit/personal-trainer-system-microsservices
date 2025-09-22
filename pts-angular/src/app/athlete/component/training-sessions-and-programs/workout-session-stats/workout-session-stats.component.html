@@ -1,0 +1,50 @@
+<div class="row">
+  <!-- Left Card: Monthly + All Time Stats -->
+  <div class="col-md-6">
+    <div class="card shadow-sm p-3 mb-3 h-100">
+      <h4 class="text-center mb-3">Training Session Stats For This Month</h4>
+      <div class="session-stats">
+        <div class="stat-item yellow">
+          <h6>Total Sessions</h6>
+          <p>{{ totalSessionsActualMonth }}</p>
+        </div>
+        <div class="stat-item green">
+          <h6>Executed Sessions</h6>
+          <p>{{ totalExecutedSessionsActualMonth }} ({{ percentActualMonthExecuted }}%)</p>
+        </div>
+        <div class="stat-item red">
+          <h6>Missed Sessions</h6>
+          <p>{{ totalNotExecutedSessionsActualMonth }} ({{ percentActualMonthNotExecuted }}%)</p>
+        </div>
+      </div>
+
+      <h4 class="text-center mb-3">All Time Sessions Stats</h4>
+      <div class="session-stats">
+        <div class="stat-item yellow">
+          <h6>Total Sessions</h6>
+          <p>{{ totalAllTimeSessions }}</p>
+        </div>
+        <div class="stat-item green">
+          <h6>Executed Sessions</h6>
+          <p>{{ totalAllTimeExecutedSessions }} ({{ percentAllTimeExecuted }}%)</p>
+        </div>
+        <div class="stat-item red">
+          <h6>Missed Sessions</h6>
+          <p>{{ totalAllTimeNotExecutedSessions }} ({{ percentAllTimeNotExecuted }}%)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Card: Training Quality Chart -->
+  <div class="col-md-6">
+    <div class="card shadow-sm p-3 mb-3 h-100">
+      <h4 class="text-center mb-3">Training Quality Stats Analysis</h4>
+      <canvas baseChart
+              [data]="data"
+              [options]="options"
+              [type]="'line'">
+      </canvas>
+    </div>
+  </div>
+</div>

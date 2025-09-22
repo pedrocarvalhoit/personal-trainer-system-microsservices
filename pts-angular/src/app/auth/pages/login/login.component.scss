@@ -1,0 +1,129 @@
+body {
+  background: #fdfdfd; /* fundo claro */
+  font-family: 'Arial', sans-serif;
+}
+
+.login-container {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid #eaeaea;
+}
+
+.login-container h3 {
+  color: #1a2a40; /* azul escuro refinado */
+  font-weight: 600;
+}
+
+.form-label {
+  color: #34495e;
+  font-weight: 500;
+}
+
+.form-control {
+  border-radius: 6px;
+  border: 1px solid #bdc3c7;
+  padding: 10px;
+  transition: border 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: #2c3e50;
+  box-shadow: 0 0 4px rgba(44, 62, 80, 0.3);
+}
+
+.btn-primary {
+  background: #2c3e50; /* azul escuro */
+  border-color: #2c3e50;
+  color: white;
+  border-radius: 6px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #1a252f;
+}
+
+.btn-accent {
+  background: #d4a017; /* amarelo mais escuro */
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.btn-accent:hover {
+  background: #b68914;
+}
+
+.btn i {
+  margin-right: 5px;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.button-group button {
+  flex: 1;
+}
+
+@media (max-width: 576px) {
+  .button-group {
+    flex-direction: column;
+  }
+  .button-group button {
+    width: 100%;
+  }
+}
+
+/* Toast centralizado */
+.toast-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* fundo escuro translúcido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.toast-message {
+  background: #e74c3c;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: fadeIn 0.4s ease;
+  font-size: 16px;
+}
+
+.toast-message button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}

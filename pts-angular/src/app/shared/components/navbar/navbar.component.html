@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/personaltrainer/dashboard">
+      <img src="assets/images/logo2.png" alt="logo pts">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/personaltrainer/dashboard" routerLinkActive="active-link">
+            <i class="fas fa-home-alt"></i>&nbsp;Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/personaltrainer/athletes" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+            <i class="fa-solid fa-user-friends"></i>&nbsp;My Athletes
+          </a>
+        </li>
+      </ul>
+
+      <form class="d-flex gap-2 align-items-center ms-auto" role="search">
+        <input *ngIf="isMyClientsRoute" class="form-control" type="search" placeholder="Find a client">
+        <button *ngIf="isMyClientsRoute" class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+
+        <!-- Foto do usuário -->
+        <div class="user-photo">
+          <a (click)="showDialog()">
+            <div class="image-wrapper mx-2">
+              <img [src]="userPhotoUrl ? userPhotoUrl : 'assets/images/logo2.png'" alt="User Photo" class="user-photo">
+              <span class="edit-icon"><i class="fas fa-pen"></i></span>
+            </div>
+          </a>
+        </div>
+
+        <div>Welcome,</div>
+
+        <div class="name-container" (mouseenter)="showEditOption = true" (mouseleave)="showEditOption = false">
+          <span class="text-capitalize fw-bold">{{ firstName }}</span>
+          <button class="btn btn-warning btn-sm edit-button" *ngIf="showEditOption" (click)="editData()">Edit Data</button>
+        </div>
+
+        <button class="btn btn-link" type="button" (click)="logout()"><i class="fas fa-door-open"></i></button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- Modal custom -->
+<div class="modal-backdrop" *ngIf="visible" (click)="hideDialog()"></div>
+<div class="custom-modal" *ngIf="visible">
+  <div class="modal-header">
+    <h5>Edit Photo</h5>
+    <button class="close-btn" (click)="hideDialog()">&times;</button>
+  </div>
+  <div class="modal-body">
+    <input type="file" (change)="onFileSelected($event)">
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="hideDialog()">Cancel</button>
+    <button class="btn btn-primary" (click)="uploadPhoto()">Save</button>
+  </div>
+</div>

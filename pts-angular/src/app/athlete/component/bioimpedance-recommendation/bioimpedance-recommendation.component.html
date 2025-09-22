@@ -1,0 +1,12 @@
+<div class="card assessment-card">
+  <div class="card-header text-white text-center">Bioimpedance Recommendations</div>
+  <div class="card-body">
+      <p><strong>Water Intake:</strong> {{ recommendation?.watterIntake | number:'1.0-2' }}  ml</p>
+      <p><strong>Calories Intake (Slow):</strong> {{ recommendation?.caloriesIntakeToAchieveIdealWeightSlow | number:'1.0-2' }} kcal</p>
+      <p><strong>Calories Intake (Moderate):</strong> {{ recommendation?.caloriesIntakeToAchieveIdealWeightModerate | number:'1.0-2' }} kcal</p>
+      <p><strong>Calories Intake (Fast):</strong> {{ recommendation?.caloriesIntakeToAchieveIdealWeightFast | number:'1.0-2' }} kcal</p>
+      <p><strong>Days (Slow):</strong> {{ recommendation?.daysToAchieveIdealWeightSlow  | number:'1.0-2' }} days</p>
+      <p><strong>Days (Moderate):</strong> {{ recommendation?.daysToAchieveIdealWeightModerate  | number:'1.0-2' }} days</p>
+      <p><strong>Days (Fast):</strong> {{ recommendation?.daysToAchieveIdealWeightFast  | number:'1.0-2' }} days</p>
+    </div>
+</div>

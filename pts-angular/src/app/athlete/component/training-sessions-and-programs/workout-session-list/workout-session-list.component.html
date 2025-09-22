@@ -1,0 +1,83 @@
+<!-- Toast -->
+<div class="toast-overlay" *ngIf="successMessage">
+  <div class="toast-message">{{ successMessage }}</div>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <!-- All Sessions -->
+    <div class="col-md-6 d-flex flex-column mb-4">
+      <div class="card assessment-card flex-grow-1">
+        <div class="card-header text-white text-center">All Sessions</div>
+        <div class="card-body p-0 history-list">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center"
+                *ngFor="let session of sessions">
+              <span>{{ session.sessionDate | date:'dd/MM/yyyy' }} - {{ session.workoutProgramName }}</span>
+              <div>
+                <button class="btn btn-sm btn-outline-primary me-2"
+                        (click)="openEditDialog(session)">Details / Edit</button>
+                <button *ngIf="!session.executed" class="btn btn-sm btn-outline-success me-2"
+                        (click)="executeSession(session.id)">Execute</button>
+                <span *ngIf="session.executed" class="badge bg-success me-2">Executed</span>
+                <button class="btn btn-sm btn-outline-danger"
+                        (click)="deleteSession(session.id)">Delete</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monthly Sessions -->
+    <div class="col-md-6 d-flex flex-column mb-4">
+      <div class="card assessment-card flex-grow-1">
+        <div class="card-header text-white text-center">This Month's Sessions</div>
+        <div class="card-body p-0 history-list">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center"
+                *ngFor="let session of monthlySessions">
+              <span>{{ session.sessionDate | date:'dd/MM/yyyy' }} - {{ session.workoutProgramName }}</span>
+              <div>
+                <button class="btn btn-sm btn-outline-primary me-2"
+                        (click)="openEditDialog(session)">Details / Edit</button>
+                <button *ngIf="!session.executed" class="btn btn-sm btn-outline-success me-2"
+                        (click)="executeSession(session.id)">Execute</button>
+                <span *ngIf="session.executed" class="badge bg-success me-2">Executed</span>
+                <button class="btn btn-sm btn-outline-danger"
+                        (click)="deleteSession(session.id)">Delete</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Edit -->
+<div class="modal-overlay" *ngIf="editDialogOpen" (click)="closeEditDialog()">
+  <div class="modal-dialog" (click)="$event.stopPropagation()">
+    <h5 class="mb-3">Edit Session Data</h5>
+
+    <label class="form-label">Date</label>
+    <input type="date" class="form-control mb-2" [(ngModel)]="editingSession.sessionDate">
+
+    <label class="form-label">Time</label>
+    <input type="text" class="form-control mb-2" [(ngModel)]="editingSession.sessionTime">
+
+    <label class="form-label">Workout Program</label>
+    <input type="text" class="form-control mb-2" [(ngModel)]="editingSession.workoutProgramName">
+
+    <label class="form-label">Client Effort</label>
+    <input type="number" class="form-control mb-2" [(ngModel)]="editingSession.clientSubjectiveEffort">
+
+    <label class="form-label">PT Quality Effort</label>
+    <input type="number" class="form-control mb-2" [(ngModel)]="editingSession.ptQualityEffortIndicative">
+
+    <div class="d-flex justify-content-end mt-3">
+      <button class="btn btn-secondary me-2" type="button" (click)="closeEditDialog()">Cancel</button>
+      <button class="btn btn-primary" type="button" (click)="saveSession()">Save</button>
+    </div>
+  </div>
+</div>

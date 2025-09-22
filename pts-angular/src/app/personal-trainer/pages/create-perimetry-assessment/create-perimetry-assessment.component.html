@@ -1,0 +1,168 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid card login-container athlete-form-card">
+  <h3 class="text-center">Create a Perimetry Assessment</h3>
+  <hr />
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+      <label for="client" class="form-label">Select Athlete:</label>
+      <select [(ngModel)]="selectedAthlete" name="client" id="client" class="form-control">
+        <option *ngFor="let athlete of athletes" [ngValue]="athlete">{{ athlete.fullName }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="shoulder" class="form-label">Shoulder (cm):</label>
+      <input
+        [(ngModel)]="shoulder"
+        type="number"
+        class="form-control"
+        name="shoulder"
+        id="shoulder"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="torax" class="form-label">Torax (cm):</label>
+      <input
+        [(ngModel)]="torax"
+        type="number"
+        class="form-control"
+        name="torax"
+        id="torax"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="waist" class="form-label">Waist (cm):</label>
+      <input
+        [(ngModel)]="waist"
+        type="number"
+        class="form-control"
+        name="waist"
+        id="waist"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="abdomen" class="form-label">Abdomen (cm):</label>
+      <input
+        [(ngModel)]="abdomen"
+        type="number"
+        class="form-control"
+        name="abdomen"
+        id="abdomen"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="hip" class="form-label">Hip (cm):</label>
+      <input
+        [(ngModel)]="hip"
+        type="number"
+        class="form-control"
+        name="hip"
+        id="hip"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="rightArm" class="form-label">Right Arm (cm):</label>
+      <input
+        [(ngModel)]="rightArm"
+        type="number"
+        class="form-control"
+        name="rightArm"
+        id="rightArm"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="leftArm" class="form-label">Left Arm (cm):</label>
+      <input
+        [(ngModel)]="leftArm"
+        type="number"
+        class="form-control"
+        name="leftArm"
+        id="leftArm"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="rightThigh" class="form-label">Rigth Thigh (cm):</label>
+      <input
+        [(ngModel)]="rightThigh"
+        type="number"
+        class="form-control"
+        name="rightThigh"
+        id="rightThigh"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="leftThigh" class="form-label">Left Thigh (cm):</label>
+      <input
+        [(ngModel)]="leftThigh"
+        type="number"
+        class="form-control"
+        name="leftThigh"
+        id="leftThigh"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="rightLeg" class="form-label">Rigth Leg (cm):</label>
+      <input
+        [(ngModel)]="rightLeg"
+        type="number"
+        class="form-control"
+        name="rightLeg"
+        id="rightLeg"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="leftLeg" class="form-label">Left Leg (cm):</label>
+      <input
+        [(ngModel)]="leftLeg"
+        type="number"
+        class="form-control"
+        name="leftLeg"
+        id="leftLeg"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="text-center mb-3">
+      <button type="submit" class="btn btn-primary custom-btn">
+      <i class="fa-solid fa-plus"></i> Create
+      </button>
+    </div>
+
+
+  </form>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,99 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid card login-container athlete-form-card">
+  <h3 class="text-center">Create a Inicial Assessment</h3>
+  <hr />
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+      <label for="client" class="form-label">Select Athlete:</label>
+      <select [(ngModel)]="selectedAthlete" name="client" id="client" class="form-control">
+        <option *ngFor="let athlete of athletes" [ngValue]="athlete">{{ athlete.fullName }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="athleteAge" class="form-label">Athlete Age:</label>
+      <input
+        [(ngModel)]="athleteAge"
+        type="number"
+        class="form-control"
+        name="athleteAge"
+        id="athleteAge"
+        placeholder="Ex: 21"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="systolicBloodPressure" class="form-label">Systolic Blood Pressure: </label>
+      <input
+        [(ngModel)]="systolicBloodPressure"
+        type="number"
+        class="form-control"
+        name="systolicBloodPressure"
+        id="systolicBloodPressure"
+        placeholder="Ex: 125"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="diastolicBloodPressure" class="form-label">Diastolic Blood Pressure: </label>
+      <input
+        [(ngModel)]="diastolicBloodPressure"
+        type="number"
+        class="form-control"
+        name="diastolicBloodPressure"
+        id="diastolicBloodPressure"
+        placeholder="Ex: 78"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="restingHeartRate" class="form-label">Resting Heart Rate:</label>
+      <input
+        [(ngModel)]="restingHeartRate"
+        type="number"
+        class="form-control"
+        name="restingHeartRate"
+        id="restingHeartRate"
+        placeholder="Ex: 65"
+        required
+      />
+    </div>
+
+    <div class="form-check mb-3">
+      <input
+        [(ngModel)]="sedentary"
+        type="checkbox"
+        class="form-check-input"
+        name="sedentary"
+        id="sedentary"
+      />
+      <label class="form-check-label" for="sedentary">Sedentary</label>
+    </div>
+
+    <div class="form-check mb-3">
+      <input
+        [(ngModel)]="smoker"
+        type="checkbox"
+        class="form-check-input"
+        name="smoker"
+        id="smoker"
+      />
+      <label class="form-check-label" for="smoker">Smoker</label>
+    </div>
+
+    <div class="text-center mb-3">
+      <button type="submit" class="btn btn-primary custom-btn">
+      <i class="fa-solid fa-plus"></i> Create
+      </button>
+    </div>
+
+
+  </form>
+</div>
+
+<app-footer></app-footer>

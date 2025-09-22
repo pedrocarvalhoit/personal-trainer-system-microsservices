@@ -1,0 +1,52 @@
+.assessment-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.card-header {
+  background-color: #0d1b2a;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 12px 16px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  text-transform: capitalize;
+  min-width: 90px;
+  text-align: center;
+}
+
+/* Categorias */
+.status-good {
+  background-color: #67b684; // verde
+}
+
+.status-warning {
+  background-color: #e6aa43; // amarelo/laranja
+}
+
+.status-bad {
+  background-color: #f74e4e; // vermelho
+}
+
+.status-critical {
+  background-color: #7f1d1d; // vermelho escuro
+}
+
+.status-unknown {
+  background-color: #6b7280; // cinza
+}
+
+

@@ -1,0 +1,111 @@
+<app-navbar></app-navbar>
+
+<div class="dashboard-container container mt-5">
+  <!-- Sessions Stats & Podium (Cards de cima) -->
+  <div class="row g-4 mb-4">
+    <!-- Sessions Card -->
+    <div class="col-md-6">
+      <div class="card shadow-sm p-4 h-100 sessions-card">
+        <h5 class="text-center mb-3">Monthly Sessions (All Athletes)</h5>
+        <div class="session-stats justify-content-center">
+          <div class="stat-item yellow">
+            <h6>Total Sessions</h6>
+            <p>{{ workoutStats.totalSessionsPerMonth }}</p>
+          </div>
+          <div class="stat-item green">
+            <h6>Executed</h6>
+            <p>{{ workoutStats.totalExecutedSessionsPerMonth }}</p>
+          </div>
+          <div class="stat-item red">
+            <h6>Missed</h6>
+            <p>{{ workoutStats.totalNotExecutedSessionsPerMonth }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Podium Card -->
+    <div class="col-md-6">
+      <div class="card shadow-sm p-4 h-100 podium-card">
+        <h5 class="text-center mb-3">Top 3 Clients (Actual Month)</h5>
+        <div class="podium-container text-center">
+          <div class="podium-second">
+            <h6>{{ workoutStats.secondPlaceAthleteName }}</h6>
+            <p>{{ workoutStats.secondPlaceSessions }} sessions</p>
+          </div>
+          <div class="podium-first">
+            <h6>{{ workoutStats.firstPlaceAthleteName }}</h6>
+            <p>{{ workoutStats.firstPlaceSessions }} sessions</p>
+          </div>
+          <div class="podium-third">
+            <h6>{{ workoutStats.thirdPlaceAthleteName }}</h6>
+            <p>{{ workoutStats.thirdPlaceSessions }} sessions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards 1, 2 e 3 (abaixo) -->
+  <div class="row g-4 mb-5">
+    <!-- Card 1 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h5 class="card-title">Athletes</h5>
+          <p class="card-text">Register and manage your athletes.</p>
+          <button class="btn btn-warning mt-auto" (click)="navigateToRegisterAthlete()">
+            <em class="fas fa-user-plus"></em>&nbsp; Register New Athlete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h5 class="card-title">Assessments</h5>
+          <p class="card-text">Create initial, perimetry and bioimpedance assessments.</p>
+          <div class="d-grid gap-2 mt-auto">
+            <button class="btn btn-warning" (click)="navigateTo('personaltrainer/create-inicial-assessment')">
+              Inicial Assessment
+            </button>
+            <button class="btn btn-warning" (click)="navigateTo('personaltrainer/create-perimetry-assessment')">
+              Perimetry Assessment
+            </button>
+            <button class="btn btn-warning" (click)="navigateTo('personaltrainer/create-bioimpedance-assessment')">
+              Bioimpedance Assessment
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h5 class="card-title">Workouts</h5>
+          <p class="card-text">Workout Sessions and Workout Programs.</p>
+           <div class="d-grid gap-2 mt-auto">
+            <button class="btn btn-warning" (click)="navigateTo('personaltrainer/create-workout-session')">
+            <em class="fas fa-dumbbell"></em>&nbsp; Create Workout Session
+          </button>
+
+          <button class="btn btn-warning" (click)="navigateTo('personaltrainer/create-workout-program')">
+            <em class="fas fa-clipboard"></em>&nbsp; Create Workout Program
+          </button>
+           </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-toast" *ngIf="successMessage">
+  {{ successMessage }}
+</div>
+
+<app-footer></app-footer>

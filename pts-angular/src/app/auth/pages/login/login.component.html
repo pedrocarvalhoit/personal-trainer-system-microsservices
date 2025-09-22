@@ -1,0 +1,51 @@
+<div class="container-fluid card login-container">
+  <form (ngSubmit)="onSubmit()" class="w-100">
+    <h3 class="text-center mb-4">Login</h3>
+    <hr />
+
+    <!-- Campos -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        [(ngModel)]="email"
+        id="email"
+        name="email"
+        type="email"
+        class="form-control"
+        placeholder="name@example.com"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        [(ngModel)]="password"
+        id="password"
+        name="password"
+        type="password"
+        class="form-control"
+        placeholder="password"
+        required
+      />
+    </div>
+
+    <!-- Botões -->
+    <div class="button-group">
+      <button type="submit" class="btn btn-primary">
+        <i class="fas fa-sign-in-alt"></i> Sign in
+      </button>
+      <button (click)="navigateToCreateAccount()" type="button" class="btn btn-accent">
+        Register
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- Toast centralizado -->
+<div class="toast-overlay" *ngIf="errorMessage">
+  <div class="toast-message">
+    <span>{{ errorMessage }}</span>
+    <button (click)="errorMessage = ''">&times;</button>
+  </div>
+</div>

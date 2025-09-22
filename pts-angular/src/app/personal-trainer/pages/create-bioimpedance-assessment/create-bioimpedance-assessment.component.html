@@ -1,0 +1,167 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid card login-container athlete-form-card">
+  <h3 class="text-center">Create a Perimetry Assessment</h3>
+  <hr />
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+      <label for="client" class="form-label">Select Athlete:</label>
+      <select [(ngModel)]="selectedAthlete" name="client" id="client" class="form-control">
+        <option *ngFor="let athlete of athletes" [ngValue]="athlete">{{ athlete.fullName }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="age" class="form-label">Age:</label>
+      <input
+        [(ngModel)]="age"
+        type="number"
+        class="form-control"
+        name="age"
+        id="age"
+        placeholder="Ex: 22"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="height" class="form-label">Height (cm):</label>
+      <input
+        [(ngModel)]="height"
+        type="number"
+        class="form-control"
+        name="height"
+        id="height"
+        placeholder="Ex: 180"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="bodyWeight" class="form-label">Body Weight (kg):</label>
+      <input
+        [(ngModel)]="bodyWeight"
+        type="number"
+        class="form-control"
+        name="bodyWeight"
+        id="bodyWeight"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="bmi" class="form-label">Body Mass Index (BMI):</label>
+      <input
+        [(ngModel)]="bmi"
+        type="number"
+        class="form-control"
+        name="bmi"
+        id="bmi"
+        placeholder="Ex: 25"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="bodyFatPercentual" class="form-label">Body Fat Percentual:</label>
+      <input
+        [(ngModel)]="bodyFatPercentual"
+        type="number"
+        class="form-control"
+        name="bodyFatPercentual"
+        id="bodyFatPercentual"
+        placeholder="Ex: 25"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="bodyMassPercentual" class="form-label">Body Mass Percentual:</label>
+      <input
+        [(ngModel)]="bodyMassPercentual"
+        type="number"
+        class="form-control"
+        name="bodyMassPercentual"
+        id="bodyMassPercentual"
+        placeholder="Ex: 25"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="basalMetabolismRateCalories" class="form-label">Basal Metabolism Calories:</label>
+      <input
+        [(ngModel)]="basalMetabolismRateCalories"
+        type="number"
+        class="form-control"
+        name="basalMetabolismRateCalories"
+        id="basalMetabolismRateCalories"
+        placeholder="Ex: 1530"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="visceralFatIndice" class="form-label">Visceral Fat Index:</label>
+      <input
+        [(ngModel)]="visceralFatIndice"
+        type="number"
+        class="form-control"
+        name="visceralFatIndice"
+        id="visceralFatIndice"
+        placeholder="Ex: 4"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="idealWeight" class="form-label">Ideal Body Weight:</label>
+      <input
+        [(ngModel)]="idealWeight"
+        type="number"
+        class="form-control"
+        name="idealWeight"
+        id="idealWeight"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="idealBodyFatPercentual" class="form-label">Ideal Body Fat Percentual:</label>
+      <input
+        [(ngModel)]="idealBodyFatPercentual"
+        type="number"
+        class="form-control"
+        name="idealBodyFatPercentual"
+        id="idealBodyFatPercentual"
+        placeholder="Ex: 80"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="notes" class="form-label">Notes:</label>
+      <input
+        [(ngModel)]="notes"
+        type="text"
+        class="form-control"
+        name="notes"
+        id="notes"
+        placeholder="Text Here"
+      />
+    </div>
+
+    <div class="text-center mb-3">
+      <button type="submit" class="btn btn-primary custom-btn">
+      <i class="fa-solid fa-plus"></i> Create
+      </button>
+    </div>
+
+
+  </form>
+</div>
+
+<app-footer></app-footer>
