@@ -1,0 +1,10 @@
+- Database migrations with flyway
+- Unit Tests
+- Tests with wiremock
+- Exception deal with GlobalExceptionHandler
+- Synchronous Communication With Spring REST Clients and HTTP interfaces
+- API Gatway implementation
+- Security with keycloak
+- Exceptions handling with a "GlobalExceptionHandler"
+- Circuit Breaker pattern with Resillience4j
+- RabbitMQ with direct exchenge pattern for event based automatic API actions

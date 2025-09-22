@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  mysql: # Banco de dados
+    container_name: mysql-pts-ass
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pts_perimetry_assessment
+      MYSQL_USER: regularUser
+      MYSQL_PASSWORD: root
+    ports:
+      - "3305:3306"
+    volumes:
+      - type: volume
+        source: mysql-data
+        target: /var/lib/mysql
+    networks:
+      - spring-demo
+    restart: unless-stopped
+
+  app: # Aplicação Spring
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring-app-ass
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/pts_perimetry_assessment
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysql
+    networks:
+      - spring-demo
+
+volumes:
+  mysql-data:
+    driver: local
+
+networks:
+  spring-demo:
+    driver: bridge

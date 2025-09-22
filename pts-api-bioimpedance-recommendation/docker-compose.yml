@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  mysql:
+    container_name: bioimpedance-recommendation-mysql
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pts_bioimpedance_recommendation
+      MYSQL_USER: regularUser
+      MYSQL_PASSWORD: root
+    ports:
+      - "3305:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - spring-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+    driver: local
+
+networks:
+  spring-network:
+    external: true

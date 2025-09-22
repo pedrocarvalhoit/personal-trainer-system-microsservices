@@ -1,0 +1,1 @@
+ALTER TABLE inicial_assessments RENAME COLUMN sistolic_blood_pressure TO systolic_blood_pressure;

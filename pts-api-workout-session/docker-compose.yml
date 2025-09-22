@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  mysql: # Banco de dados
+    container_name: mysql-pts-workout-session
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pts_workout-session
+      MYSQL_USER: regularUser
+      MYSQL_PASSWORD: root
+    ports:
+      - "3302:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - spring-network
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+    driver: local
+
+networks:
+  spring-network:
+    external: true

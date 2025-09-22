@@ -1,0 +1,27 @@
+graph LR
+    %% Serviços principais
+    Auth["Auth Service\n(Apenas autentica)"] -->|envia evento de registro| User["User Service\n(Registro de usuário + upload fotos)"]
+
+    %% Criação de atleta
+    User -->|cria Athlete| Bioimpedance["Bioimpedance Assessment\n(Armazena dados do atleta)"]
+    User -->|cria Athlete| InicialAssessment["Inicial Assessment\n(Armazena dados do atleta)"]
+    User -->|cria Athlete| PerimetryAssessment["Perimetry Assessment\n(Armazena dados do atleta)"]
+    User -->|cria Athlete| Monolit["Monolit Service\n(Performance Testes, Workout Sessions, Workout Programs)"]
+
+    %% Eventos de recomendação
+    Bioimpedance -->|envia evento de dados| BioimpedanceRecommendation["Bioimpedance Recommendation\n(Gera recomendação)"]
+
+    %% Client Report usando dados das assessments
+    ClientReport["Client Report Service\n(Gera relatórios a partir das 3 assessments)"] --> Bioimpedance
+    ClientReport --> InicialAssessment
+    ClientReport --> PerimetryAssessment
+
+    %% Observações de fluxo
+    style Auth fill:#f9f,stroke:#333,stroke-width:2px
+    style User fill:#bbf,stroke:#333,stroke-width:2px
+    style Bioimpedance fill:#bfb,stroke:#333,stroke-width:2px
+    style BioimpedanceRecommendation fill:#ffb,stroke:#333,stroke-width:2px
+    style InicialAssessment fill:#bff,stroke:#333,stroke-width:2px
+    style PerimetryAssessment fill:#fbf,stroke:#333,stroke-width:2px
+    style Monolit fill:#ffb,stroke:#333,stroke-width:2px
+    style ClientReport fill:#fbb,stroke:#333,stroke-width:2px

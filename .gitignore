@@ -1,0 +1,13 @@
+# IntelliJ / IDE
+.idea/
+*.iml
+
+# Maven
+target/
+
+# Node / Angular
+node_modules/
+dist/
+
+# Docker volumes
+volume-data/
