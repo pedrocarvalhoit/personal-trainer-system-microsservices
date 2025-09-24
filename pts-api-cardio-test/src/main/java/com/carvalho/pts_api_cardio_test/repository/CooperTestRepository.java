@@ -1,6 +1,5 @@
 package com.carvalho.pts_api_cardio_test.repository;
 
-import com.carvalho.pts_api_cardio_test.adapter.CooperTestAdapter;
 import com.carvalho.pts_api_cardio_test.entity.CooperTestEntity;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,6 +12,6 @@ public interface CooperTestRepository extends JpaRepository<CooperTestEntity, Lo
 
     CooperTestEntity findTopByAthleteIdOrderByCreatedAtDesc(String athleteId);
 
-    List<CooperTestEntity> findByAthleteIdOrderByCreatedAtDesc(String athleteId, Pageable pageable);
+    List<CooperTestEntity> findByAthleteIdOrderByCreatedAtAsc(String athleteId, Pageable pageable);
 }
 

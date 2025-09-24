@@ -71,7 +71,7 @@ public class CooperTestServiceImpl implements CooperTestService {
     @Override
     public List<CooperTestHistoryResponseDto> getHistoryResults(String athleteId) {
         Pageable pageable = PageRequest.of(0, 12);
-        List<CooperTestEntity> testsList = repository.findByAthleteIdOrderByCreatedAtDesc(athleteId, pageable);
+        List<CooperTestEntity> testsList = repository.findByAthleteIdOrderByCreatedAtAsc(athleteId, pageable);
         return testsList.stream()
                 .map(adapter::toHistoryResponse)
                 .toList();

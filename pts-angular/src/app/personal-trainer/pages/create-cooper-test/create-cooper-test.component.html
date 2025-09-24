@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid card login-container athlete-form-card">
+  <h3 class="text-center">Create a Cooper Test</h3>
+  <hr />
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+        <span class="description-text" *ngIf="description">{{ description }}</span>
+        <span class="description-text" *ngIf="!description">Loading instructions...</span>
+      </div>
+
+    <div class="mb-3">
+      <label for="client" class="form-label">Select Athlete:</label>
+      <select [(ngModel)]="selectedAthlete" name="client" id="client" class="form-control">
+        <option *ngFor="let athlete of athletes" [ngValue]="athlete">{{ athlete.fullName }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="distance" class="form-label">Total Distance Achived: </label>
+      <input
+        [(ngModel)]="distance"
+        type="number"
+        class="form-control"
+        name="distance"
+        id="distance"
+        placeholder="Ex: 1800.0"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="athleteAge" class="form-label">Athlete Age:</label>
+      <input
+        [(ngModel)]="athleteAge"
+        type="number"
+        class="form-control"
+        name="athleteAge"
+        id="athleteAge"
+        placeholder="Ex: 21"
+        required
+      />
+    </div>
+
+    <select [(ngModel)]="athleteGender" name="athleteGender" id="athleteGender" class="form-control">
+      <option value="" disabled>Select Gender</option>
+      <option value="MALE">Male</option>
+      <option value="FEMALE">Female</option>
+    </select>
+
+    <div class="text-center mb-3">
+      <button type="submit" class="btn btn-primary custom-btn">
+      <i class="fa-solid fa-plus"></i> Create
+      </button>
+    </div>
+
+
+  </form>
+</div>
+
+<app-footer></app-footer>

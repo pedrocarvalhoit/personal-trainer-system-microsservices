@@ -85,9 +85,7 @@
         </div>
 
         <div *ngIf="activeTab === 8">
-          <app-cooper-test></app-cooper-test>
-          <app-cooper-test-result></app-cooper-test-result>
-          <app-cooper-test-historic></app-cooper-test-historic>
+          <app-cooper-test-result [athleteId]="athleteId"></app-cooper-test-result>
         </div>
 
         <div *ngIf="activeTab === 9">

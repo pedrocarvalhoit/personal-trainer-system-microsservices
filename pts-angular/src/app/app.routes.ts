@@ -13,6 +13,7 @@ import { CreatePerimetryAssessmentComponent } from './personal-trainer/pages/cre
 import { CreateBioimpedanceAssessmentComponent } from './personal-trainer/pages/create-bioimpedance-assessment/create-bioimpedance-assessment.component';
 import { CreateWorkoutSessionComponent } from './personal-trainer/pages/create-workout-session/create-workout-session.component';
 import { CreateWorkoutProgramComponent } from './personal-trainer/pages/create-workout-program/create-workout-program.component';
+import { CreateCooperTestComponent } from './personal-trainer/pages/create-cooper-test/create-cooper-test.component';
 
 export const routes: Routes = [
   {path: '', component: WelcomeComponent},
@@ -57,6 +58,10 @@ export const routes: Routes = [
     {
     path: 'personaltrainer/create-workout-program',
     component: CreateWorkoutProgramComponent,
+    canActivate: [AuthGuard]},
+    {
+    path: 'personaltrainer/create-cooper-test',
+    component: CreateCooperTestComponent,
     canActivate: [AuthGuard]}
 
 ];

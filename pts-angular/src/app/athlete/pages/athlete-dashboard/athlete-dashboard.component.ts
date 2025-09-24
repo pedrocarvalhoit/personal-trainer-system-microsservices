@@ -11,9 +11,7 @@ import { NavbarComponent } from '../../../shared/components/navbar/navbar.compon
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
 import { WorkoutSessionStatsComponent } from '../../component/training-sessions-and-programs/workout-session-stats/workout-session-stats.component';
 import { WorkoutProgramListComponent } from '../../component/training-sessions-and-programs/workout-program-list/workout-program-list.component';
-import { CooperTestHistoricComponent } from '../../component/physical-tests/cooper-test-historic/cooper-test-historic.component';
 import { CooperTestResultComponent } from '../../component/physical-tests/cooper-test-result/cooper-test-result.component';
-import { CooperTestComponent } from '../../component/physical-tests/cooper-test/cooper-test.component';
 import { BackSquatComponent } from '../../component/strength-exercises-tests/back-squat/back-squat.component';
 import { DeadliftComponent } from '../../component/strength-exercises-tests/deadlift/deadlift.component';
 import { SeatedLowRowComponent } from '../../component/strength-exercises-tests/seated-low-row/seated-low-row.component';
@@ -25,11 +23,12 @@ import { BioimpedanceAssessmentComponent } from "../../component/assessments/bio
 import { BioimpedanceRecommendationComponent } from "../../component/bioimpedance-recommendation/bioimpedance-recommendation.component";
 import { AthleteReportComponent } from "../../component/athlete-report/athlete-report.component";
 import { WorkoutSessionListComponent } from "../../component/training-sessions-and-programs/workout-session-list/workout-session-list.component";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-athlete-dashboard',
   standalone: true,
-  imports: [
+  imports: [CommonModule, FormsModule, ReactiveFormsModule,
     NgbNavModule,
     NgbDropdownModule,
     NavbarComponent,
@@ -37,9 +36,7 @@ import { WorkoutSessionListComponent } from "../../component/training-sessions-a
     FooterComponent,
     WorkoutSessionStatsComponent,
     WorkoutProgramListComponent,
-    CooperTestHistoricComponent,
     CooperTestResultComponent,
-    CooperTestComponent,
     BackSquatComponent,
     DeadliftComponent,
     SeatedLowRowComponent,

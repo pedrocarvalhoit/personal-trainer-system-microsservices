@@ -11,9 +11,10 @@ import org.springframework.stereotype.Component;
 public class DescriptionAdapter {
 
     public TestDescriptionResponseDto entityToModel(CooperTestDescriptionEntity entity) {
-        TestDescriptionResponseDto dto = TestDescriptionResponseDto.builder().build();
-        BeanUtils.copyProperties(entity, dto, "id");
-        return dto;
+        if (entity == null) return null;
+        return TestDescriptionResponseDto.builder()
+                .description(entity.getDescription())
+                .build();
     }
 
 }

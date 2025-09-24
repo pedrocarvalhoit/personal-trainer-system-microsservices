@@ -30,7 +30,11 @@ public class CooperTestEntity{
     private LocalDateTime createdAt;
 
     private String athleteId;
+
+    @Column(nullable = false)
     private Integer athleteAge;
+
+    @Column(nullable = false)
     private String athleteGender;
 
     @Column(nullable = false)

@@ -24,7 +24,7 @@ public class CooperTestDescriptionEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String DESCRIPTION = "Start on the treadmill with no incline, or flat solo ate the street," +
+    private String description = "Start on the treadmill with no incline, or flat solo ate the street," +
             " and do your best in 12 minuts. Register the total distance.";
 
 }
