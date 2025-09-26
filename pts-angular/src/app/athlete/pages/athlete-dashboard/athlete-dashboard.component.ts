@@ -24,6 +24,7 @@ import { BioimpedanceRecommendationComponent } from "../../component/bioimpedanc
 import { AthleteReportComponent } from "../../component/athlete-report/athlete-report.component";
 import { WorkoutSessionListComponent } from "../../component/training-sessions-and-programs/workout-session-list/workout-session-list.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StrengthTestResultComponent } from "../../component/strength-exercises-tests/strength-test-result/strength-test-result.component";
 
 @Component({
   selector: 'app-athlete-dashboard',
@@ -46,8 +47,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BioimpedanceAssessmentComponent,
     BioimpedanceRecommendationComponent,
     AthleteReportComponent,
-    WorkoutSessionListComponent
-],
+    WorkoutSessionListComponent, StrengthTestResultComponent],
   templateUrl: './athlete-dashboard.component.html',
   styleUrls: ['./athlete-dashboard.component.scss']
 })
