@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Adapter {
 
-    public StrengthTestResponseDto entityToModel(StrengthTestEntity strengthTestEntity) {
+    public static StrengthTestResponseDto entityToModel(StrengthTestEntity strengthTestEntity) {
         StrengthTestResponseDto dto = StrengthTestResponseDto.builder().build();
         BeanUtils.copyProperties(strengthTestEntity, dto);
         return dto;

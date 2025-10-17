@@ -4,18 +4,18 @@
     <div class="col-md-6 d-flex flex-column">
       <!-- Card de detalhes -->
       <div class="card assessment-card flex-grow-1">
-        <div class="card-header text-white text-center">Inicial Assessment Selected</div>
+        <div class="card-header text-white text-center">Initial Assessment Selected</div>
         <div class="card-body" *ngIf="selectedAssessment; else noSelection">
           <p><strong>Date:</strong> {{ selectedAssessment.createdAt | date: 'dd/MM/yyyy' }}</p>
           <p><strong>Sedentary:</strong> {{ selectedAssessment.sedentary ? 'Sim' : 'Não' }}</p>
           <p><strong>Smoker:</strong> {{ selectedAssessment.smoker ? 'Sim' : 'Não' }}</p>
-          <p><strong>Blood Pressure:</strong> 
+          <p><strong>Blood Pressure:</strong>
             {{ selectedAssessment.systolicBloodPressure }} / {{ selectedAssessment.diastolicBloodPressure }} mmHg
           </p>
           <p><strong>Resting Heart Rate:</strong> {{ selectedAssessment.restingHeartRate }} bpm</p>
         </div>
         <ng-template #noSelection>
-          <div class="text-muted p-3">Select some inicial assessment.</div>
+          <div class="text-muted p-3">Select some initial assessment.</div>
         </ng-template>
       </div>
 
@@ -39,14 +39,14 @@
         <div class="card-header text-white text-center">Assessment History</div>
         <div class="card-body p-0 history-list">
           <ul class="list-group list-group-flush">
-            <li 
+            <li
               class="list-group-item list-item-click d-flex justify-content-between align-items-center"
               *ngFor="let assessment of assessments"
               (click)="selectAssessment(assessment)"
               [class.active-item]="assessment.id === selectedAssessment?.id"
             >
               <span>{{ assessment.createdAt | date: 'dd/MM/yyyy' }}</span>
-              <button 
+              <button
                 class="btn btn-sm btn-outline-danger delete-btn"
                 (click)="deleteAssessment(assessment.id); $event.stopPropagation()"
               >

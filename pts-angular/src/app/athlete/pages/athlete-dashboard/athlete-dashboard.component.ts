@@ -12,10 +12,6 @@ import { FooterComponent } from '../../../shared/components/footer/footer.compon
 import { WorkoutSessionStatsComponent } from '../../component/training-sessions-and-programs/workout-session-stats/workout-session-stats.component';
 import { WorkoutProgramListComponent } from '../../component/training-sessions-and-programs/workout-program-list/workout-program-list.component';
 import { CooperTestResultComponent } from '../../component/physical-tests/cooper-test-result/cooper-test-result.component';
-import { BackSquatComponent } from '../../component/strength-exercises-tests/back-squat/back-squat.component';
-import { DeadliftComponent } from '../../component/strength-exercises-tests/deadlift/deadlift.component';
-import { SeatedLowRowComponent } from '../../component/strength-exercises-tests/seated-low-row/seated-low-row.component';
-import { BenchPressComponent } from '../../component/strength-exercises-tests/bench-press/bench-press.component';
 import { CommonModule } from '@angular/common';
 import { InicialAssessmentComponent } from "../../component/assessments/inicial-assessment/inicial-assessment.component";
 import { PerimetryAssessmentComponent } from "../../component/assessments/perimetry-assessment/perimetry-assessment.component";
@@ -38,10 +34,6 @@ import { StrengthTestResultComponent } from "../../component/strength-exercises-
     WorkoutSessionStatsComponent,
     WorkoutProgramListComponent,
     CooperTestResultComponent,
-    BackSquatComponent,
-    DeadliftComponent,
-    SeatedLowRowComponent,
-    BenchPressComponent,
     InicialAssessmentComponent,
     PerimetryAssessmentComponent,
     BioimpedanceAssessmentComponent,

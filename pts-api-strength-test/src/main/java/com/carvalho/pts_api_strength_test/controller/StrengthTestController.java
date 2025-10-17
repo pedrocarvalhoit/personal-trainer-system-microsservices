@@ -1,6 +1,7 @@
 package com.carvalho.pts_api_strength_test.controller;
 
 import com.carvalho.pts_api_strength_test.dto.*;
+import com.carvalho.pts_api_strength_test.enums.Exercise;
 import com.carvalho.pts_api_strength_test.service.impl.StrengthTestServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/strength-test")
@@ -29,9 +31,9 @@ public class StrengthTestController {
         return ResponseEntity.created(location).body(savedTest);
     }
 
-    @GetMapping("/last-result-for-athlete/{athleteId}")
-    public ResponseEntity<StrengthTestResponseDto> getLastResult(@PathVariable String athleteId){
-        return ResponseEntity.ok(service.getLastTest(athleteId));
+    @GetMapping("/all-results-for-athlete/{athleteId}")
+    public ResponseEntity<List<StrengthTestResponseDto>> getLastResult(@PathVariable String athleteId){
+        return ResponseEntity.ok(service.getAllTests(athleteId));
     }
 
     @GetMapping("/description")
@@ -44,9 +46,14 @@ public class StrengthTestController {
         return ResponseEntity.ok(service.getAllExercieses());
     }
 
-    @GetMapping("/exercises-result-for-athlete/{athleteId}")
-    public ResponseEntity<List<ExercisesResultsResponseDto>> getResults(@PathVariable String athleteId){
+    @GetMapping("/exercises-result-for-chart/{athleteId}")
+    public ResponseEntity<Map<Exercise, List<ExercisesResultsResponseDto>>> getResults(@PathVariable String athleteId){
         return ResponseEntity.ok(service.getExerciseResults(athleteId));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

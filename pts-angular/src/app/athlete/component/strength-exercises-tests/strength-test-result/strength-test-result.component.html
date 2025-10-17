@@ -1,1 +1,107 @@
-<p>strength-test-result works!</p>
+<div class="container mt-4 strength-page">
+  <div class="row">
+    <!-- Coluna da esquerda -->
+    <div class="col-md-6 d-flex flex-column">
+      <!-- Histórico -->
+      <div class="card strength-card flex-grow-1">
+        <div class="card-header strength-header text-center">Test History</div>
+        <div class="card-body p-0 strength-list">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item strength-list-item d-flex justify-content-between align-items-center"
+                *ngFor="let test of tests">
+              <div>
+                <div class="small text-muted">{{ test.createdAt | date: 'dd/MM/yyyy' }}</div>
+                <div class="strength-info">Max Load: {{ test.maxLoad }}</div>
+                <div class="strength-info">Exercise: {{ test.exercise }}</div>
+              </div>
+              <button class="btn btn-sm btn-outline-danger strength-delete-btn"
+                      (click)="deleteTest(test.id); $event.stopPropagation()">
+                <i class="bi bi-trash">delete</i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Back Squat -->
+      <div class="card strength-card mt-3">
+        <div class="card-header strength-header d-flex justify-content-between align-items-center">
+          <span>Back Squat</span>
+          <button class="btn btn-sm btn-warning strength-add-btn" (click)="openCreateTestDialog('BACK_SQUAT')">
+            Create Test
+          </button>
+        </div>
+        <div class="card-body chart-body">
+          <ng-container *ngIf="charts['BACK_SQUAT'] && charts['BACK_SQUAT'].labels?.length; else noDataBack">
+            <canvas baseChart
+                    [data]="charts['BACK_SQUAT']"
+                    [options]="chartOptions">
+            </canvas>
+          </ng-container>
+          <ng-template #noDataBack><div class="text-center text-muted">No data</div></ng-template>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coluna da direita -->
+    <div class="col-md-6 d-flex flex-column">
+      <!-- Bench Press -->
+      <div class="card strength-card flex-grow-1">
+        <div class="card-header strength-header d-flex justify-content-between align-items-center">
+          <span>Bench Press</span>
+          <button class="btn btn-sm btn-warning strength-add-btn" (click)="openCreateTestDialog('BENCH_PRESS')">
+            Create Test
+          </button>
+        </div>
+        <div class="card-body chart-body">
+          <ng-container *ngIf="charts['BENCH_PRESS'] && charts['BENCH_PRESS'].labels?.length; else noDataBench">
+            <canvas baseChart
+                    [data]="charts['BENCH_PRESS']"
+                    [options]="chartOptions">
+            </canvas>
+          </ng-container>
+          <ng-template #noDataBench><div class="text-center text-muted">No data</div></ng-template>
+        </div>
+      </div>
+
+      <!-- Deadlift -->
+      <div class="card strength-card mt-3">
+        <div class="card-header strength-header d-flex justify-content-between align-items-center">
+          <span>Deadlift</span>
+          <button class="btn btn-sm btn-warning strength-add-btn" (click)="openCreateTestDialog('DEADLIFT')">
+            Create Test
+          </button>
+        </div>
+        <div class="card-body chart-body">
+          <ng-container *ngIf="charts['DEADLIFT'] && charts['DEADLIFT'].labels?.length; else noDataDead">
+            <canvas baseChart
+                    [data]="charts['DEADLIFT']"
+                    [options]="chartOptions">
+            </canvas>
+          </ng-container>
+          <ng-template #noDataDead><div class="text-center text-muted">No data</div></ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Save (mantive o seu modal) -->
+<div class="modal-overlay" *ngIf="editDialogOpen">
+  <div class="modal-dialog">
+    <button class="btn btn-light btn-sm close-btn" type="button" (click)="closeEditDialog()">✖</button>
+
+    <h5 class="mb-3">Create Strength Test - {{ selectedExercise }}</h5>
+
+    <span class="description-text" *ngIf="description">{{ description }}</span>
+    <span class="description-text" *ngIf="!description">Loading instructions...</span>
+
+    <label class="form-label">Max Load</label>
+    <input type="number" class="form-control mb-2" [(ngModel)]="maxLoad" required>
+
+    <div class="d-flex justify-content-end mt-3">
+      <button class="btn btn-secondary me-2" type="button" (click)="closeEditDialog()">Cancel</button>
+      <button class="btn btn-primary" type="button" (click)="createTest()">Save</button>
+    </div>
+  </div>
+</div>

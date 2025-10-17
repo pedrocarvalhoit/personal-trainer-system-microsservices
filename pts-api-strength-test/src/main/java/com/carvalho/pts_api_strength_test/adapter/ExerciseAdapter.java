@@ -8,7 +8,7 @@ import java.util.List;
 @Component
 public class ExerciseAdapter {
 
-    public ExercisesResponseDto exercisesResponseDto(List<String> exercises) {
+    public static ExercisesResponseDto exercisesResponseDto(List<String> exercises) {
         return ExercisesResponseDto.builder()
                 .exercises(exercises)
                 .build();

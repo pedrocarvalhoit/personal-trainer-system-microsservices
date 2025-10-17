@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DescriptionAdapter {
 
-    public TestDescriptionResponseDto entityToModel(StrengthTestDescriptionEntity entity) {
+    public static TestDescriptionResponseDto entityToModel(StrengthTestDescriptionEntity entity) {
         if (entity == null) return null;
         return TestDescriptionResponseDto.builder()
                 .description(entity.getDescription())

@@ -1,18 +1,5 @@
 package com.carvalho.pts_api_athlete_report.service.impl;
 
-import com.carvalho.pts_api_athlete_report.adapter.Adapter;
-import com.carvalho.pts_api_athlete_report.dto.AthleteReportDto;
-import com.carvalho.pts_api_athlete_report.dto.UserAthleteCreatedEventDto;
-import com.carvalho.pts_api_athlete_report.entity.*;
-import com.carvalho.pts_api_athlete_report.entity.enums.BMIStatus;
-import com.carvalho.pts_api_athlete_report.entity.enums.BloodPressureStatus;
-import com.carvalho.pts_api_athlete_report.entity.enums.WaistHipRisk;
-import com.carvalho.pts_api_athlete_report.repository.AthleteReportRepository;
-import com.carvalho.pts_api_athlete_report.repository.AthleteRepository;
-import com.carvalho.pts_api_athlete_report.repository.BioimpedanceAssessmentRepository;
-import com.carvalho.pts_api_athlete_report.repository.PerimetryAssessmentRepository;
-import com.carvalho.pts_api_athlete_report.service.AthleteReportService;
-import com.carvalho.pts_api_athlete_report.repository.InicialAssessmentRepository;
 import org.springframework.stereotype.Service;
 
 @Service

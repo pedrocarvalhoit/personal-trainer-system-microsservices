@@ -1,0 +1,116 @@
+.strength-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.strength-header {
+  background-color: #0d1b2a;
+  color: #f8f9fa;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+}
+
+.strength-info {
+  font-size: 0.85rem;
+  color: #343a40;
+  margin-right: 8px;
+}
+
+.strength-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.description-text{
+  font-weight: bold;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.strength-list-item {
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: #f8f9fa;
+  }
+}
+
+.strength-active-item {
+  background-color: #ffc107 !important;
+  color: #0d1b2a !important;
+  font-weight: bold;
+}
+
+.strength-delete-btn {
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #dc3545;
+    color: #fff;
+    border-color: #dc3545;
+  }
+}
+
+.strength-add-btn {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  color: #0d1b2a;          // texto escuro
+  background-color: #ffc107; // amarelo
+  border-color: #ffc107;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+    color: #0d1b2a;
+  }
+}
+
+
+.chart-body {
+  height: 300px;
+  padding: 1rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+
+  /* Permite interação somente dentro do modal */
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  z-index: 1060; /* maior que overlay para receber cliques */
+  pointer-events: auto; /* necessário para inputs e botões */
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
